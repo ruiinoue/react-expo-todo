@@ -9,6 +9,8 @@ import {
   SafeAreaView
 } from 'react-native';
 
+import FormInput from './src/components/FormInput';
+
 interface Props {}
 interface State {
   todoValue: string
@@ -44,24 +46,18 @@ export default class App extends Component<Props, State> {
 
     return (
       <SafeAreaView style={styles.container}>
-        <View style={styles.formGroup}>
-          <Text style={styles.formLabel}>やること</Text>
-          <TextInput
-            style={styles.formControl}
-            value={todoValue}
-            placeholder="何かやること"
-            onChangeText={onChangeTodoValue}
-          />
-        </View>
-        <View style={styles.formGroup}>
-          <Text style={styles.formLabel}>メモ</Text>
-          <TextInput
-            style={styles.formControl}
-            value={memoValue}
-            placeholder="何かメモ"
-            onChangeText={onChangeMemoValue}
-          />
-        </View>
+        <FormInput
+          label="やること"
+          value={todoValue}
+          placeholder="何かやること"
+          onChangeText={onChangeTodoValue}
+        />
+        <FormInput
+          label="メモ"
+          value={memoValue}
+          placeholder="何かメモ"
+          onChangeText={onChangeMemoValue}
+        />
         <Button
           title="登録"
           onPress={setNewTodo}
